@@ -1,75 +1,57 @@
+// ===============================
+// ARQUIVO: auth.js
+// Responsável pelo login e registro
+// ===============================
 
-/* ======================= */
-/* TELA DE LOGIN E REGISTRO */
-/* ======================= */
+// IMPORTAR URL DO BACKEND
+// (vem do arquivo config.js)
+console.log("✅ auth.js conectado com sucesso!");
 
-.auth-body {
-  background: linear-gradient(to bottom, var(--preto) 50%, var(--vermelho) 50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  const loginMsg = document.getElementById("loginMsg");
 
-.auth-container {
-  background: var(--branco);
-  width: 100%;
-  max-width: 380px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px var(--sombra);
-  padding: 20px;
-  text-align: center;
-}
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      loginMsg.textContent = "🔄 Validando...";
+      loginMsg.style.color = "black";
 
-.auth-header .logo {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
+      const telefone = document.getElementById("telefone").value;
+      const senha = document.getElementById("senha").value;
 
-.auth-form {
-  margin-top: 15px;
-  text-align: left;
-}
+      try {
+        const response = await fetch(`${API_BASE_URL}/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ telefone, senha })
+        });
 
-.auth-form label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-  color: var(--preto);
-}
+        const data = await response.json();
 
-.auth-form input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid var(--cinza-escuro);
-  border-radius: 4px;
-}
+        if (response.ok) {
+          loginMsg.textContent = "✅ Login bem-sucedido! Redirecionando...";
+          loginMsg.style.color = "green";
 
-.auth-message {
-  margin-top: 10px;
-  text-align: center;
-  font-weight: bold;
-}
+          // Salvar dados no navegador
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("nome", data.nome);
+          localStorage.setItem("saldo", data.saldo);
+          localStorage.setItem("telefone", telefone);
 
-.auth-footer {
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.link-dourado {
-  color: var(--dourado);
-  font-weight: bold;
-}
-
-.link-voltar {
-  display: inline-block;
-  margin-top: 10px;
-  color: var(--vermelho);
-  text-decoration: none;
-}
-
-.link-voltar:hover {
-  text-decoration: underline;
-}
+          // Redirecionar para o painel
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 1500);
+        } else {
+          loginMsg.textContent = data.message || "❌ Telefone ou senha incorretos";
+          loginMsg.style.color = "red";
+        }
+      } catch (error) {
+        console.error(error);
+        loginMsg.textContent = "❌ Erro de conexão com o servidor";
+        loginMsg.style.color = "red";
+      }
+    });
+  }
+});
