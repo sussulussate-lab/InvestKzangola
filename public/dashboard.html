@@ -1,1 +1,81 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Usuário - InvestKzangola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-circle">IK</div>
+      <div class="brand-text">
+        <div class="brand-title">InvestKzangola</div>
+        <div class="brand-sub">Painel do Usuário</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="dashboard.html" class="nav-link active">Painel</a>
+      <a href="#" class="nav-link" onclick="logout()">Sair</a>
+    </nav>
+  </header>
+
+  <main class="dashboard">
+    <section class="user-info">
+      <h2>Bem-vindo, <span id="userName">Usuário</span> 👋</h2>
+      <p>ID da Conta: <span id="userId">—</span></p>
+      <p>Telefone: <span id="userPhone">—</span></p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Saldo Disponível</h3>
+        <p><strong id="saldo">0 Kz</strong></p>
+      </div>
+      <div class="card">
+        <h3>Depósitos Pendentes</h3>
+        <p><strong id="pendentes">0</strong></p>
+      </div>
+      <div class="card">
+        <h3>Total Investido</h3>
+        <p><strong id="investido">0 Kz</strong></p>
+      </div>
+    </section>
+
+    <section class="actions">
+      <h3>Ações Rápidas</h3>
+      <button onclick="abrirDeposito()" class="btn-primary">Fazer Depósito</button>
+      <button onclick="abrirTarefas()" class="btn-outline">Tarefas Diárias</button>
+    </section>
+
+    <section class="history">
+      <h3>Histórico de Movimentos</h3>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          <tr><td colspan="4">Sem registros ainda</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>InvestKzangola Plataforma Oficial</strong><br/>
+      Suporte: <a href="tel:+244933328351">+244 933 328 351</a>
+    </div>
+    <small>© 2025 InvestKzangola</small>
+  </footer>
+
+  <script src="../src/dashboard.js"></script>
+</body>
+</html>
