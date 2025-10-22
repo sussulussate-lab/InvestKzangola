@@ -6,30 +6,37 @@
   <title>Entrar - InvestKzangola</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo-circle">IK</div>
-      <div class="brand-text">
-        <div class="brand-title">InvestKzangola</div>
-        <div class="brand-sub">Área de acesso</div>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <div class="auth-header">
+      <div class="logo">
+        <span class="logo-invest">Invest</span><span class="logo-kz">Kz</span><span class="logo-angola">angola</span>
       </div>
+      <h2>Entrar na Plataforma</h2>
+      <p>Acesse sua conta para começar a investir com segurança</p>
     </div>
-  </header>
 
-  <main class="form-container">
-    <h2>Entrar na sua conta</h2>
-    <form id="loginForm">
-      <label>Telefone ou Email:</label>
-      <input type="text" id="user" placeholder="Digite seu número ou email" required>
+    <form id="loginForm" class="auth-form">
+      <label for="telefone">Número de Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="Ex: 933000000" required>
 
-      <label>Senha:</label>
-      <input type="password" id="password" placeholder="Digite sua senha" required>
-      <button type="button" class="btn-primary" onclick="entrar()">Entrar</button>
-      <p class="redirect">Ainda não tem conta? <a href="register.html">Criar conta</a></p>
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" minlength="4" required>
+
+      <button type="submit" class="btn btn-primary">Entrar</button>
+
+      <p id="loginMsg" class="auth-message"></p>
     </form>
-  </main>
 
+    <div class="auth-footer">
+      <p>Não tem conta? <a href="register.html" class="link-dourado">Criar agora</a></p>
+      <a href="index.html" class="link-voltar">← Voltar ao início</a>
+    </div>
+  </div>
+
+  <script src="../src/config.js"></script>
   <script src="../src/auth.js"></script>
+
 </body>
-</html>
+  </html>
