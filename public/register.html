@@ -1,46 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Criar Conta - InvestKzangola</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo-circle">IK</div>
-      <div class="brand-text">
-        <div class="brand-title">InvestKzangola</div>
-        <div class="brand-sub">Criar nova conta</div>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-header">
+      <div class="logo">
+        <span class="logo-invest">Invest</span><span class="logo-kz">Kz</span><span class="logo-angola">angola</span>
       </div>
+      <h2>Crie a sua conta</h2>
+      <p>Registe-se para começar a investir com segurança</p>
     </div>
-  </header>
 
-  <main class="form-container">
-    <h2>Registre-se</h2>
-    <form id="registerForm">
-      <label>Nome Completo:</label>
-      <input type="text" id="name" placeholder="Seu nome" required>
+    <form id="registerForm" class="auth-form">
+      <label>Nome completo</label>
+      <input id="name" type="text" required>
 
-      <label>Telefone (+244):</label>
-      <input type="text" id="phone" placeholder="Ex: 933000000" required>
+      <label>Telefone (+244)</label>
+      <input id="phone" type="tel" required>
 
-      <label>Email:</label>
-      <input type="email" id="email" placeholder="Seu email" required>
+      <label>Email</label>
+      <input id="email" type="email">
 
-      <label>Senha:</label>
-      <input type="password" id="password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+      <label>Senha (mín. 4 caract., letras e números)</label>
+      <input id="password" type="password" minlength="4" required>
 
-      <label>Confirmar Senha:</label>
-      <input type="password" id="confirmPassword" placeholder="Repita sua senha" minlength="6" required>
+      <label>Confirmar senha</label>
+      <input id="confirmPassword" type="password" minlength="4" required>
 
-      <button type="button" class="btn-primary" onclick="registrar()">Criar Conta</button>
-      <p class="redirect">Já possui conta? <a href="login.html">Entrar</a></p>
+      <button type="submit" class="btn btn-primary">Criar Conta</button>
+      <p id="registerMsg" class="auth-message"></p>
     </form>
-  </main>
 
+    <div class="auth-footer">
+      <p>Já tem conta? <a href="login.html" class="link-dourado">Entrar</a></p>
+      <a href="index.html" class="link-voltar">← Voltar ao início</a>
+    </div>
+  </div>
+
+  <script src="../src/config.js"></script>
   <script src="../src/auth.js"></script>
 </body>
-</html>
+  </html>
