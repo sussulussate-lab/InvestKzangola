@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar - InvestKzangola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-circle">IK</div>
+      <div class="brand-text">
+        <div class="brand-title">InvestKzangola</div>
+        <div class="brand-sub">Área de acesso</div>
+      </div>
+    </div>
+  </header>
 
+  <main class="form-container">
+    <h2>Entrar na sua conta</h2>
+    <form id="loginForm">
+      <label>Telefone ou Email:</label>
+      <input type="text" id="user" placeholder="Digite seu número ou email" required>
+
+      <label>Senha:</label>
+      <input type="password" id="password" placeholder="Digite sua senha" required>
+      <button type="button" class="btn-primary" onclick="entrar()">Entrar</button>
+      <p class="redirect">Ainda não tem conta? <a href="register.html">Criar conta</a></p>
+    </form>
+  </main>
+
+  <script src="../src/auth.js"></script>
+</body>
+</html>
