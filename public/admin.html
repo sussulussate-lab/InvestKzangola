@@ -1,1 +1,50 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo - InvestKzangola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar admin-header">
+    <div class="brand">
+      <div class="logo-circle">ADM</div>
+      <div class="brand-text">
+        <div class="brand-title">Administração</div>
+        <div class="brand-sub">Painel de Controle</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="admin.html" class="nav-link active">Depósitos Pendentes</a>
+      <a href="#" class="nav-link" onclick="logout()">Sair</a>
+    </nav>
+  </header>
+
+  <main class="admin-dashboard">
+    <section class="admin-info">
+      <h2>Bem-vindo, Administrador 👑</h2>
+      <p>Use o painel abaixo para aprovar ou rejeitar depósitos dos usuários.</p>
+      <p id="admin-msg">🔄 Carregando depósitos...</p>
+    </section>
+
+    <section class="pending-deposits">
+      <h3>Depósitos Pendentes</h3>
+      <div id="pending-list">
+        <p>Carregando...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>InvestKzangola Plataforma Oficial</strong><br>
+      Administração do Sistema
+    </div>
+    <small>© 2025 InvestKzangola. Todos os direitos reservados.</small>
+  </footer>
+
+  <script src="../src/admin.js"></script>
+</body>
+</html>
